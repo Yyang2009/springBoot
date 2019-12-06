@@ -3,9 +3,10 @@ package com.example.lucklymoney.domain;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.io.Serializable;
 
 @Entity
-public class UserInfo {
+public class UserInfo implements Serializable {
 
 
     public Integer getId() {

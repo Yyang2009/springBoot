@@ -19,7 +19,8 @@ public class interceptorConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         InterceptorRegistration registration = registry.addInterceptor(getAuthenticetionInterceptor());
-        registration.addPathPatterns("/**");  // 拦截所有请求
-        //registration.excludePathPatterns("\"/\",\"/error\",\"/static/**\"");  //添加不拦截路径
+        registration.addPathPatterns("/**");  // 拦截路径
+//        registration.addPathPatterns("/api/logout");  // 拦截所路径
+        registration.excludePathPatterns("/api/loginBySession");  //添加不拦截路径
     }
 }

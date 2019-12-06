@@ -2,6 +2,8 @@ server:
   port: 8081
   servlet:
     context-path: /lucklymoney
+    session:
+      timeout: "PT10M"
 
 limit:
     minMoney: 2
@@ -18,3 +20,9 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+  redis:
+    database: 0
+    host: localhost
+    port: 6379
+  session:
+    store-type: redis
