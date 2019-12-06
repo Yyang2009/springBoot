@@ -80,12 +80,10 @@ public class AuthenticetionInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         HttpSession session = request.getSession();
-        System.out.println(session);
-        System.out.println(session.getAttribute(session.getId()));
         if(session.getAttribute(session.getId()) != null){
             return true;
         }
-        System.out.println("pless login first");
+        System.out.println("please login first");
         return false;
     }
 
