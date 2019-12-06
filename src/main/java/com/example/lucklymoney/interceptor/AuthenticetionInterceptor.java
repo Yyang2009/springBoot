@@ -79,10 +79,22 @@ public class AuthenticetionInterceptor implements HandlerInterceptor {
     // session 拦截器
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        if (!(handler instanceof HandlerMethod)) {    // 如果不是直接映射到方法则直接通过
+            return true;
+        }
+        HandlerMethod handlerMethod = (HandlerMethod) handler;
+        Method method = handlerMethod.getMethod();
+        System.out.println(request.getRequestURI());
+        if (method.isAnnotationPresent(PassToken.class)) {      // 检查是否有passtoken注释 有则跳过认证
+            PassToken passToken = method.getAnnotation(PassToken.class);
+            if (passToken.required()) {
+                return true;
+            }
+        }
         HttpSession session = request.getSession();
         System.out.println(session);
         System.out.println(session.getAttribute(session.getId()));
-        if(session.getAttribute(session.getId()) != null){
+        if (session.getAttribute(session.getId()) != null) {
             return true;
         }
         System.out.println("pless login first");
