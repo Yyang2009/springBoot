@@ -48,7 +48,7 @@ public class UserApi {
     @UserLoginToken
     @GetMapping("/getMessage")
     public String getMessage() {
-        return "你已经通过验证";
+        return "success";
     }
 
     @PassToken
