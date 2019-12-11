@@ -4,12 +4,14 @@ import com.example.lucklymoney.domain.Result;
 import com.example.lucklymoney.domain.UserInfo;
 import com.example.lucklymoney.repository.UserInfoRepository;
 import com.example.lucklymoney.service.UserInfoService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
+@Api("用户测试")
 @RestController
 public class UserInfoController {
 
